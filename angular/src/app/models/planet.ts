@@ -1,5 +1,27 @@
-// need to add
+import { Residents } from "./residents";
+
 export interface Planets {
-  count: number;
-  results: any[];
+  name: string;
+  rotation_period: string;
+  orbital_period: string;
+  diameter: string;
+  climate: string;
+  gravity: string;
+  terrain: string;
+  surface_water: string;
+  population: string;
+  residents: string[];
+  films: string[];
+  created: Date;
+  edited: Date;
+  url: string;
 }
+
+export interface RootObject {
+  count: number;
+  next: string;
+  previous?: any;
+  results: Residents[];
+}
+
+

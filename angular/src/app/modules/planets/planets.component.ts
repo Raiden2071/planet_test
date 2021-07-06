@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlanetsService } from '../service/planets/planets.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PlanetModalComponent } from 'src/app/modals/planet-modal/planet-modal.component';
+import { Planets } from 'src/app/models/planet';
 
 @Component({
   selector: 'app-planets',
@@ -10,8 +11,8 @@ import { PlanetModalComponent } from 'src/app/modals/planet-modal/planet-modal.c
 })
 export class PlanetsComponent implements OnInit {
 
-  planets!: any;
-  selected : any = '0';
+  planets: Planets[] | any;
+  selected : string = '0';
   constructor(
     private service: PlanetsService,
     private modalService: NgbModal

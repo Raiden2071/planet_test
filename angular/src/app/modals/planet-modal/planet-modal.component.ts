@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { from } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Residents } from 'src/app/models/residents';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 })
 export class PlanetModalComponent implements OnInit {
 
-  peoples: any = [];
+  peoples: Residents[] | any = [];
   @Input() planet: any;
   constructor(
     private http: HttpClient
@@ -24,13 +24,10 @@ export class PlanetModalComponent implements OnInit {
 
   getPeople(): void {
     from(this.planet.residents as any).subscribe(
-      resident => this.http.get(resident as any).subscribe(resident => {
-        this.peoples.push(resident);
-      }));
+      resident => this.http.get(resident as any)
+        .subscribe(resident => this.peoples.push(resident)
+        ));
   }
 
-  click() {
-    console.log(this.peoples);
-    
-  }
 }
+
