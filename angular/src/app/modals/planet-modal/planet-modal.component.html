@@ -1,0 +1,24 @@
+<div *ngIf="peoples?.length===0">
+  Residents quantity is 0
+</div>
+
+<table *ngIf="peoples?.length!==0" class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">Mass</th>
+      <th scope="col">Height</th>
+      <th scope="col">Birth_year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let people of peoples; let i = index;">
+      <th scope="row">{{i}} </th>
+      <td>{{people.name}} </td>
+      <td>{{people.mass}}</td>
+      <td>{{people.height}}</td>
+      <td>{{people.birth_year}}}</td>
+    </tr>
+  </tbody>
+</table>
